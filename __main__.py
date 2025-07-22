@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sgd
 import simul
+import time
 
 
 #Logic:
@@ -23,6 +24,11 @@ x = np.array([0.1, 0.1])
 x = sgd.sgd_algo(x)
 
 #Outputs
+start = time.time()
+elapsed = time.time() - start
+minutes, seconds = divmod(elapsed, 60)
+print(f"Execution time: {int(minutes)} minutes and {seconds:.2f} seconds")
+
 print(f"Option Price:     {simul.p:.10f}")
 print(f"Stock:    {x[0]:.10f}")
 print(f"Option:   {x[1]:.10f}")
