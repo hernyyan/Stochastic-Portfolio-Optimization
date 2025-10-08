@@ -21,7 +21,7 @@ import time
 #initialize portfolio weights
 x = np.array([0.1, 0.1])
 
-x = sgd.sgd_algo(x)
+x, stock_path, option_path = sgd.sgd_algo(x)
 
 #Outputs
 start = time.time()
@@ -37,8 +37,8 @@ print(f"Cash:     {(1 - x[0] - x[1]):.10f}")
 #Plot
 x = list(range(1, sgd.n + 1))
 plt.figure(figsize=(10,6))
-plt.plot(x, sgd.stock_path, linestyle='-', color='blue', label='stock')
-plt.plot(x, sgd.option_path, linestyle='-', color='red', label='option')
+plt.plot(x, stock_path, linestyle='-', color='blue', label='stock')
+plt.plot(x, option_path, linestyle='-', color='red', label='option')
 plt.xlabel('Iterations')
 plt.ylabel('Proportion of Each Asset')
 plt.title('Stochastic Optimization Path')
